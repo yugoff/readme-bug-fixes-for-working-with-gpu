@@ -1,4 +1,4 @@
-# readme-bug-fixes-for-working-with-gpu
+# Bug fixes for working with gpu
 
 ## Возможные ошибки и их исправления.
 
