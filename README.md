@@ -5,7 +5,7 @@
 ### 1. Команда для запуска контейнера в Docker с доступом к графическому процессору (GPU) с использованием NVIDIA: 
 	
 	```bash
-	sudo docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi
+	   sudo docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi
 	```
 	
 	+-----------------------------------------------------------------------------+
@@ -79,7 +79,7 @@
 	1.7. Повторить следующую команду:
 	
 	```bash
-	sudo docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi
+	   sudo docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi
 	```
 	
 ### 2. Ошибка с нехваткой видеопамяти на компьютере:
@@ -89,19 +89,19 @@
 	2.1. Останавливаем работающие контейнеры:
 	
 	```bash
-	docker-compose down   
+	   docker-compose down   
 	```
 	
 	2.2. Удаляем контейнер:
 	
 	```bash
-	docker rm vl_server   
+	   docker rm vl_server   
 	```
 	
 	2.3. Запуск контейнера с приложением на Streamlit с использованием docker-compose, с пересборкой образа, в фоновом режиме:
 	
 	```bash
-	STREAMLIT=1 docker-compose up --build -d   
+	   STREAMLIT=1 docker-compose up --build -d   
 	```
 	
 ### 3. Ошибка ModuleNotFoundError: No module named 'altait.vegalite.v4'
@@ -109,30 +109,37 @@
 	3.1. Заходим в контейнер:
 	
 	```bash
-	docker exec -it vl_server bash
+	   docker exec -it vl_server bash
 	```
 	
 	3.2. Скачиваем в контейнер модуль:
 	
 	```bash
-	pip install altair==4   
+	   pip install altair==4   
 	```
 	
 	3.3. Выходим из контейнера:
 	
 	```bash
-	exit   
+	   exit   
 	```
 	
 	3.4. Останавливаем контейнер:
 	
 	```bash
-	docker stop vl_server   
+	   docker stop vl_server   
 	```
 	
 	3.5. Запускаем контейнеры:
 	
 	```bash
-	STREAMLIT=1 docker-compose up -d   
+	   STREAMLIT=1 docker-compose up -d   
 	```
+
+### 4. Ошибка из-за превышения время ожидания при перезапуске службы containered (*sudo systemctl restart containerd*):
+
+***Job for containerd.service failed because a timeout was exceeded.
+See "systemctl status containerd.service" and "journalctl -xeu containerd.service" for details.***
+
+	4.1. Для решения проблемы нужно перейти к решению ошибок 1.1-1.7
 	
