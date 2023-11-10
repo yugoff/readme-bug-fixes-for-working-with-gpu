@@ -142,4 +142,12 @@
 See "systemctl status containerd.service" and "journalctl -xeu containerd.service" for details.***
 
 	4.1. Для решения проблемы нужно перейти к решению ошибок 1.1-1.7
+
+### 5. Ошибка http: invalid Host header (при запуске командой STREAMLIT=1 docker-compose up -d)
+
+	5.1. Запуск контейнера:
+	
+	```bash
+	   STREAMLIT=1 docker compose up --build -d
+	```
 	
